@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+footer {
+  position: relative;
+  height: 10pxrem;
+  line-height: 10px;
+  vertical-align: middle;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.bg-detail{
+  background-color: #563d7c;
+}
+
+.text-display{
+  color: #563d7c;
+}
+
+.btn-main{
+  color: #fff;
+  background-color: #563d7c;
+  border-color: #563d7c;
+}
+
+.btn-light{
+  color: black;
+  background-color: #eae8ee;
+  border-color: #563d7c;
+}
+
+.btn-link {
+  font-weight: 400;
+  color: #563d7c;
+}
+
+.card {
+  border: 1px solid #563d7c;
+}
+
+#btn-login{
+  border: 3px solid #563d7c;
+}
+
+.page-header{
+  font-size: 1.8rem;
+  font-weight: 400;
+}

@@ -1,0 +1,21 @@
+.dashboard-img-div {
+    width: 100%;
+    border-bottom: 1px solid grey;
+    text-align: center;
+}
+
+.dashboard-img {
+    width: 100%;
+    margin: auto;
+    padding-top: 5px;
+}
+
+.profile-btn-group{
+    bottom: -1rem;
+    position: absolute;
+}
+
+.comments-section{
+    width: 100%;
+    padding-top: 1rem;
+}
