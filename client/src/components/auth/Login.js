@@ -56,7 +56,6 @@ class Login extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="page-header text-center">Log In</h1>
               <p className="lead text-center">
                 Sign in to your Tech-Connect account
               </p>

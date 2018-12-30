@@ -57,7 +57,6 @@ class Register extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="text-center page-header">Sign Up</h1>
               <p className="lead text-center">
                 Create your Tech-Connect account
               </p>
