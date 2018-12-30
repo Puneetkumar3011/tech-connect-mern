@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { addComment } from '../../store/actions/postActions';
+import "./post.css";
 
 class CommentForm extends Component {
   constructor(props) {
@@ -48,9 +49,6 @@ class CommentForm extends Component {
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
-          <div className="card-header bg-detail text-white">
-            Reply to the Post
-          </div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
@@ -62,9 +60,11 @@ class CommentForm extends Component {
                   error={errors.text}
                 />
               </div>
-              <button type="submit" className="btn btn-dark">
-                Submit
+              <div className="comments__add-div">
+                <button type="submit" className="btn btn-main">
+                  Submit
               </button>
+              </div>
             </form>
           </div>
         </div>

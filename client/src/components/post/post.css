@@ -1,0 +1,18 @@
+.comments{
+    font-size: 0.8rem;
+}
+
+.comments__name{
+    font-size: 0.8rem;
+    color: grey;
+    text-align: right !important;
+}
+
+.comments__delete{
+    font-size: 0.8rem;
+    color: #563d7c;
+}
+
+.comments__add-div{
+    text-align: right;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteComment } from '../../store/actions/postActions';
+import "./post.css";
 
 class CommentItem extends Component {
   onDeleteClick(postId, commentId) {
@@ -12,27 +13,19 @@ class CommentItem extends Component {
     const { comment, postId, auth } = this.props;
 
     return (
-      <div className="card card-body mb-3">
+      <div className="">
         <div className="row">
-          <div className="col-md-2">
-            <a href="profile.html">
-              <img
-                className="rounded-circle d-none d-md-block"
-                src={comment.avatar}
-                alt=""
-              />
-            </a>
-            <p className="text-center user-name">{comment.name}</p>
+          <div className="col-md-1">
+            <img className="rounded-circle d-none d-md-block" src={auth.user.avatar} alt="" />
           </div>
-          <div className="col-md-10">
-            <p className="lead">{comment.text}</p>
+          <div className="col-md-9">
+            <div className="comments">{comment.text}</div>
+            <div className="text-center comments__name">...{auth.user.name}</div>
+          </div>
+          <div className="col-md-1">
             {comment.user === auth.user.id ? (
-              <button
-                onClick={this.onDeleteClick.bind(this, postId, comment._id)}
-                type="button"
-                className="btn btn-danger mr-1"
-              >
-                <i className="fa fa-times" />
+              <button onClick={this.onDeleteClick.bind(this, postId, comment._id)} type="button" className="btn btn-link comments__delete">
+                Delete
               </button>
             ) : null}
           </div>

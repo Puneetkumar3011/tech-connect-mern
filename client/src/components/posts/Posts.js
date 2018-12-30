@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PostFeed from './PostFeed';
 import Spinner from '../common/Spinner';
 import { getPosts } from '../../store/actions/postActions';
-import CommentFeed from "../post/CommentFeed";
 
 class Posts extends Component {
   componentDidMount() {
