@@ -9,10 +9,11 @@ import CommentForm from "../post/CommentForm";
 import "./posts.css";
 
 class PostItem extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      isAddNewComment: false
+      isAddNewComment: false,
+      showComments: false
     };
   }
   onDeleteClick(id) {
@@ -27,6 +28,10 @@ class PostItem extends Component {
     this.props.removeLike(id);
   }
 
+  onCommentsClick(){
+    this.setState({showComments: !this.state.showComments});
+  }
+
   findUserLike(likes) {
     const { auth } = this.props;
     if (likes.filter(like => like.user === auth.user.id).length > 0) {
@@ -36,7 +41,7 @@ class PostItem extends Component {
     }
   }
 
-  addNewCommentHandler(){
+  addNewCommentHandler() {
     this.setState((prevState) => {
       return { isAddNewComment: !prevState.isAddNewComment }
     });
@@ -70,9 +75,12 @@ class PostItem extends Component {
                 <button onClick={this.onUnlikeClick.bind(this, post._id)} type="button" className="btn btn-light mr-1">
                   <i className="text-secondary fa fa-thumbs-down" />
                 </button>
-                <Link to={`/post/${post._id}`} className="btn btn-main mr-1">
+                <button onClick={this.onCommentsClick.bind(this)} type="button" className="btn btn-light mr-1">
+                  <i className="text-secondary fa fa-comments" />
+                </button>
+                {/* <Link to={`/post/${post._id}`} className="btn btn-main mr-1">
                   Comments
-                </Link>
+                </Link> */}
                 {post.user === auth.user.id ? (
                   <button onClick={this.onDeleteClick.bind(this, post._id)} type="button" className="btn btn-danger mr-1">
                     <i className="fa fa-times" />
@@ -83,23 +91,27 @@ class PostItem extends Component {
           </div>
         </div>
         {/* comments */}
-        <div className="row">
-          <div className="col-md-2">&nbsp;</div>
-          <div className="col-md-10">
-            <CommentFeed postId={post._id} comments={post.comments} />
+        {this.state.showComments ?
+          <div>
+            <div className="row">
+              <div className="col-md-2">&nbsp;</div>
+              <div className="col-md-10">
+                <CommentFeed postId={post._id} comments={post.comments} />
+              </div>
+            </div>
+            {/* add new comment */}
+            <div className="row">
+              <div className="col-md-2">&nbsp;</div>
+              <button onClick={this.addNewCommentHandler.bind(this)} className="col-md-10 btn btn-link comment__add-btn">Reply to Post</button>
+            </div>
+            <div className="row">
+              <div className="col-md-2">&nbsp;</div>
+              <div className="col-md-10">
+                {this.state.isAddNewComment ? <CommentForm postId={post._id} /> : null}
+              </div>
+            </div>
           </div>
-        </div>
-        {/* add new comment */}
-        <div className="row">
-          <div className="col-md-2">&nbsp;</div>
-          <button onClick={this.addNewCommentHandler.bind(this)} className="col-md-10 btn btn-link comment__add-btn">Reply to Post</button>
-        </div>
-        <div className="row">
-          <div className="col-md-2">&nbsp;</div>
-          <div className="col-md-10">
-            {this.state.isAddNewComment ? <CommentForm postId={post._id} /> : null}
-          </div>
-        </div>
+          : null}
       </div>
     );
   }

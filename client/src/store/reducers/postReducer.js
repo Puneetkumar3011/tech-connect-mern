@@ -8,11 +8,10 @@ import {
 
 const initialState = {
   posts: [],
-  post: {},
   loading: false
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case POST_LOADING:
       return {
@@ -26,11 +25,16 @@ export default function(state = initialState, action) {
         loading: false
       };
     case GET_POST:
-      return {
-        ...state,
-        post: action.payload,
-        loading: false
-      };
+      {
+        let newState1 = state.posts.filter(post => post._id === action.payload._id);
+        let newState = {...state};
+        newState.posts.map((post) => {
+          if (post._id === action.payload._id) {
+            post.comments = action.payload.comments;
+          }
+        });
+        return newState;
+      }
     case ADD_POST:
       return {
         ...state,
