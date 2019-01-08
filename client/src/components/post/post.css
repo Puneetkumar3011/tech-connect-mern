@@ -1,11 +1,25 @@
-.comments{
-    font-size: 0.8rem;
+.comment{
+    background-color: #eae8ee;
+    margin-bottom: 5px;
+    padding: 5px;
 }
+
+.comment-text{
+    font-size: 0.8rem;
+    margin-left: 7px;
+}
+
+.truncate {
+    width: 75px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
 .comments__name{
     font-size: 0.8rem;
     color: grey;
-    text-align: right !important;
+    text-align: left !important;
 }
 
 .comments__delete{

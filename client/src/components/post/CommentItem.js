@@ -13,14 +13,15 @@ class CommentItem extends Component {
     const { comment, postId, auth } = this.props;
 
     return (
-      <div className="">
-        <div className="row">
+      <div className="comment">
+        <div className="row no-gutters">
           <div className="col-md-1">
             <img className="rounded-circle d-none d-md-block" src={auth.user.avatar} alt="" />
+            <div className="text-center comments__name truncate">{auth.user.name}</div>
           </div>
-          <div className="col-md-9">
-            <div className="comments">{comment.text}</div>
-            <div className="text-center comments__name">...{auth.user.name}</div>
+          <div className="col-md-9 comment-text">
+            <div className="">{comment.text}</div>
+            
           </div>
           <div className="col-md-1">
             {comment.user === auth.user.id ? (
