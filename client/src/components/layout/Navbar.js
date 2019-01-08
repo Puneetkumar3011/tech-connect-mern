@@ -18,14 +18,20 @@ class Navbar extends Component {
     const authLinks = (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
-          <Link className="nav-link" to="/profiles">
-            {' '}
-            Techies
+          <Link className="nav-link" to="/me">
+            <img
+              className="rounded-circle"
+              src={user.avatar}
+              alt={user.name}
+              style={{ width: '25px', marginRight: '5px' }}
+              title="You must have a Gravatar connected to your email to display an image"
+            />Me
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/dashboard">
-            Dashboard
+          <Link className="nav-link" to="/profiles">
+            {' '}
+            My Network
           </Link>
         </li>
         <li className="nav-item">
@@ -51,7 +57,7 @@ class Navbar extends Component {
 
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
-        <div style={{width: '100%'}}>
+        <div style={{ width: '100%' }}>
           <div className="row">
             <div className="col-3">
               <Link className="navbar-brand" to="/">

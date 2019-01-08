@@ -35,7 +35,7 @@ class PostForm extends Component {
 
     this.props.addPost(newPost);
     this.setState({ text: '' });
-    this.props.history.push('/dashboard');
+    this.props.history.push('/me');
   }
 
   onChange(e) {

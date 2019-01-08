@@ -8,7 +8,7 @@ import { getCurrentProfile, deleteAccount } from '../../store/actions/profileAct
 import Spinner from '../common/Spinner';
 import Posts from "../posts/Posts";
 
-import "./dashboard.css";
+import "./me-styles.css";
 
 const customStyles = {
     content: {
@@ -21,7 +21,7 @@ const customStyles = {
     }
 };
 
-class Dashboard extends Component {
+class MeComponent extends Component {
     constructor() {
         super();
 
@@ -60,20 +60,20 @@ class Dashboard extends Component {
         const { user } = this.props.auth;
         const { profile, loading } = this.props.profile;
 
-        let dashboardContent;
+        let meContent;
 
         if (profile === null || loading) {
-            dashboardContent = <Spinner />;
+            meContent = <Spinner />;
         } else {
             // Check if logged in user has profile data
             if (Object.keys(profile).length > 0) {
-                dashboardContent = (
+                meContent = (
                     <React.Fragment>
                         <div className="card card-body bg-light mb-3">
                             <div className="row">
                                 <div className="col-2">
                                     <img
-                                        className="rounded-circle dashboard-img"
+                                        className="rounded-circle me-img"
                                         src={user.avatar}
                                         alt={user.name}
                                         title="You must have a Gravatar connected to your email to display an image"
@@ -127,7 +127,7 @@ class Dashboard extends Component {
                 );
             } else {
                 // User is logged in but has no profile
-                dashboardContent = (
+                meContent = (
                     <div>
                         <p className="lead text-muted">Welcome {user.name}</p>
                         <p>Your profile is not yest setup. Please follow the link below to complete the profile.</p>
@@ -159,11 +159,11 @@ class Dashboard extends Component {
                         </div>
                     </Modal>
                 </div>
-                <div className="dashboard">
+                <div className="me">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
-                                {dashboardContent}
+                                {meContent}
                             </div>
                         </div>
                     </div>
@@ -173,7 +173,7 @@ class Dashboard extends Component {
     }
 }
 
-Dashboard.propTypes = {
+MeComponent.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
     deleteAccount: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
@@ -186,5 +186,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
-    Dashboard
+    MeComponent
 );
