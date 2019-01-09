@@ -115,7 +115,9 @@ class MeComponent extends Component {
                                 </div>
                             </div>
                         </div>
-                        <h3 className="text-display">All Your Posts</h3>
+                        <div className="">
+                            <h3 className="text-display">Network Posts</h3>
+                        </div>
                         <div className="row">
                             <div className="bg-light comments-section">
                                 <div className="lead">
